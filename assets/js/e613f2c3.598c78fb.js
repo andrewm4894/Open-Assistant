@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkopen_assistant=self.webpackChunkopen_assistant||[]).push([[4701],{4279:s=>{s.exports=JSON.parse('{"permalink":"/Open-Assistant/blog/tags/docusaurus","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

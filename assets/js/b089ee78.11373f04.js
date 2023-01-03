@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkopen_assistant=self.webpackChunkopen_assistant||[]).push([[5446],{7919:s=>{s.exports=JSON.parse('{"label":"hola","permalink":"/Open-Assistant/blog/tags/hola","allTagsPath":"/Open-Assistant/blog/tags","count":1}')}}]);

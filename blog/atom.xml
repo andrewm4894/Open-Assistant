@@ -6,7 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://andrewm4894.github.io/Open-Assistant/blog"/>
     <subtitle>Open Assistant Blog</subtitle>
-    <icon>https://andrewm4894.github.io/Open-Assistant/img/favicon.ico</icon>
+    <icon>https://andrewm4894.github.io/Open-Assistant/img/logo.svg</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>welcome</id>

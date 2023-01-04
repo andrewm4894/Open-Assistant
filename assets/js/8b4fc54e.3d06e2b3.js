@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkopen_assistant=self.webpackChunkopen_assistant||[]).push([[8500],{7786:s=>{s.exports=JSON.parse('{"permalink":"/Open-Assistant/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

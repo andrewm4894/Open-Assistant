@@ -10,7 +10,7 @@ at `localhost:5432`.
 Make sure you have all requirements installed. You can do this by running
 `pip install -r requirements.txt` inside the `backend` folder and
 `pip install -e .` inside the `oasst-shared` folder. Then, run the backend using
-the `run-local.sh` script inside the `scripts` folder. This will start the
+the `run-local.sh` script inside the `scripts/backend-development` folder. This will start the
 backend server at `http://localhost:8080`.
 
 ## REST Server Configuration

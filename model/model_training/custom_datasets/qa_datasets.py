@@ -276,31 +276,16 @@ class SODA(Dataset):
 
 
 class SODADialogue(Dataset):
-    url = "https://drive.google.com/uc?id=1TOGQfr419n8wpzJpYLLw4nB3tSKD8zXV"
-
     def __init__(self, cache_dir, verbose=True):
-        path = os.path.join(cache_dir, "soda_dialog.jsonl")
-
-        if not os.path.exists(path):
-            import gzip
-            import shutil
-
-            import gdown
-
-            gdown.download(self.url, output=os.path.join(cache_dir, "soda_dialog.jsonl.gz"))
-
-            with gzip.open(os.path.join(cache_dir, "soda_dialog.jsonl.gz"), "rb") as f_in:
-                with open(path, "wb") as f_out:
-                    shutil.copyfileobj(f_in, f_out)
+        dataset = load_dataset("emozilla/soda_synthetic_dialogue", cache_dir=cache_dir)
 
         self.pairs = []
         faulty = 0
-        with open(path) as fin:
-            for line in fin:
-                conversation = json.loads(line)
+        for split in dataset:
+            for row in dataset[split]:
                 question_answer_pairs = ()
 
-                question_answers = conversation["text"].split("User: ")
+                question_answers = row["conversation"].split("User: ")
                 for question_answer in question_answers[1:]:  # first element is empty
                     try:
                         question, answer = question_answer.split("\nAssistant: ")
@@ -506,6 +491,14 @@ class Vicuna(Dataset):
         for line in data["conversations"]:
             speaker = line["from"]  # 'human' or 'gpt'
             message = line["value"]
+
+            # remove markdown escaping in revision 192ab2185289094fc556ec8ce5ce1e8e587154ca
+            # python-markdownify with escape_asterisks & escape_underscores True is used
+            # for pre-processing the dataset.
+            # See also https://github.com/LAION-AI/Open-Assistant/issues/2510
+            message = message.replace(r"\_", "_")
+            message = message.replace(r"\*", "*")
+
             if role != speaker:
                 if role is not None:
                     dialogue.append("\n".join(messages))
@@ -528,7 +521,7 @@ class Vicuna(Dataset):
         dataset = load_dataset(
             "anon8231489123/ShareGPT_Vicuna_unfiltered",
             cache_dir=cache_dir,
-            data_files=["ShareGPT_V3_unfiltered_cleaned_split.json"],
+            data_files=["ShareGPT_V3_unfiltered_cleaned_split_no_imsorry.json"],
             revision="192ab2185289094fc556ec8ce5ce1e8e587154ca",
         )["train"]
         for data in dataset:

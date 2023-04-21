@@ -32,6 +32,7 @@ import { ChatConfigFormData, SamplingParameters } from "src/types/Chat";
 
 import { useChatContext } from "./ChatContext";
 import { areParametersEqual } from "./WorkParameters";
+import downloadAsPDF from "src/utils/downloadAsPDF";
 
 export const ChatConfigDrawer = memo(function ChatConfigDrawer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -176,6 +177,7 @@ const ChatConfigForm = () => {
           )}
         ></Controller>
       ))}
+      <button onClick={downloadAsPDF}>Download Chat</button>
     </Stack>
   );
 };

@@ -54,6 +54,7 @@
     "focus-visible": "^5.2.0",
     "framer-motion": "^6.5.1",
     "friendly-username-generator": "^2.0.4",
+    "html2pdf.js": "^0.10.1",
     "lande": "^1.0.10",
     "lucide-react": "^0.105.0",
     "next": "13.0.6",
